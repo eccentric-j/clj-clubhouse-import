@@ -3,9 +3,11 @@
    [chimport.clubhouse.api :as clubhouse]))
 
 (defn normalize-epic
-  [new-epic]
+  [new-epic config]
   (assoc new-epic
-         :app_url (str "https://app.clubhouse.io/venuebook/epic/"
+         :app_url (str "https://app.clubhouse.io/"
+                       (:organization config)
+                       "/epic/"
                        (:id new-epic))))
 
 (defn epic
@@ -20,7 +22,7 @@
                    :owner_ids [member-id]})]
     (assoc state
            :epic-id (:id new-epic)
-           :epic (normalize-epic new-epic))))
+           :epic (normalize-epic new-epic config))))
 
 (defn stories
   [state config]
