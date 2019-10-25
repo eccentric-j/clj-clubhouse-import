@@ -26,7 +26,7 @@
             :owner_ids [member-id]
             :requested_by_id member-id
             :workflow_state_id state-id
-            :story_type (if (starts-with? story "User")
+            :story_type (if (starts-with? name "User")
                           :feature
                           :chore)})))
 
